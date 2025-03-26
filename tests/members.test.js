@@ -6,18 +6,12 @@ import { getBoardsFromMember, getMemberOrganizations } from '../api/members.js'
 const key = process.env.API_KEY
 const token = process.env.API_TOKEN
 
-describe("GET /members", () => {
-    before(() => {
-        console.log("top before")
-    })
-    after(() => {
-        console.log("top after")
-    })
+describe("Tello API: GET /members", () => {
 
     it("GET /members/me/boards should return boards of user", async () => {
-        const response = await getBoardsFromMember(key, token)
+        const boards = await getBoardsFromMember(key, token)
 
-        expect(response.length).to.eql(0)
+        expect(boards).to.have.length(0)
     })
 
     it("GET /members/{membersId}/organizations should return organizations of user", async () => {
@@ -26,6 +20,6 @@ describe("GET /members", () => {
 
         const organizations = await getMemberOrganizations(memberId, key, token)
 
-        expect(organizations.length).to.eql(1)
+        expect(organizations).to.have.length(1)
     })
 })

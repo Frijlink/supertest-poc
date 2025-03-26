@@ -1,0 +1,26 @@
+import { faker } from '@faker-js/faker/locale/nl';
+
+export function generateBoardName() {
+    return faker.animal.cat()
+}
+
+export function generatePerson() {
+    return {
+        firstName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        email: faker.internet.email(),
+        telephone: `06${this.getRandomInteger(10000000, 99999999)}`,
+        password: "test",
+        address: faker.location.streetAddress(),
+        postalCode: faker.location.zipCode(),
+        city: faker.location.city(),
+        country: "Netherlands",
+        province: "Utrecht"
+    }
+}
+
+export function getRandomInteger(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
