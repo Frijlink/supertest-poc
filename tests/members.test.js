@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { expect } from "chai"
+import { expect, describe, it } from "vitest"
 import { getTokenInfo } from '../api/token.js';
 import { getBoardsFromMember, getMemberOrganizations } from '../api/members.js'
 
@@ -11,7 +11,7 @@ describe("Tello API: GET /members", () => {
     it("GET /members/me/boards should return boards of user", async () => {
         const boards = await getBoardsFromMember(key, token)
 
-        expect(boards).to.have.length(0)
+        expect(boards).toHaveLength(0)
     })
 
     it("GET /members/{membersId}/organizations should return organizations of user", async () => {
@@ -20,6 +20,6 @@ describe("Tello API: GET /members", () => {
 
         const organizations = await getMemberOrganizations(memberId, key, token)
 
-        expect(organizations).to.have.length(1)
+        expect(organizations).toHaveLength(1)
     })
 })

@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { expect } from "chai"
+import { expect, describe, it, beforeAll, afterAll } from "vitest"
 import { closeBoard, createBoard, deleteBoard, getBoard, updateBoard } from '../api/boards.js';
 import { getBoardsFromMember, getMemberOrganizations } from '../api/members.js'
 import { getTokenInfo } from '../api/token.js';
@@ -17,7 +17,7 @@ describe("Trello API: CRUD /boards", () => {
     const visibility = 'org'
     const updatedVisibility = 'private'
 
-    before(async () => {
+    beforeAll(async () => {
         const memberId = (await getTokenInfo(key, token)).idMember
         const organizations = await getMemberOrganizations(memberId, key, token)
         organizationId = organizations[0].id
@@ -63,9 +63,9 @@ describe("Trello API: CRUD /boards", () => {
 
     it("DELETE /boards/{boardId} should delete a board", async () => {
         await deleteBoard(boardId, key, token)
-    }).timeout(5000)
+    })
 
-    after(async () => {
+    afterAll(async () => {
         const boards = await getBoardsFromMember(key, token)
         for (const board of boards) {
             await deleteBoard(board.id, key, token)
