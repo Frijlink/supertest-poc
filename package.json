@@ -1,0 +1,17 @@
+{
+    "name": "supertest-poc",
+    "version": "1.0.0",
+    "description": "small poc with supertest",
+    "type": "module",
+    "scripts": {
+        "test": "npx mocha tests/**.test.js"
+    },
+    "author": "Hein-Carl Frijlink",
+    "homepage": "https://github.com/Frijlink/supertest-poc#readme",
+    "devDependencies": {
+        "supertest": "7.1.0",
+        "chai": "5.2.0",
+        "mocha": "11.1.0",
+        "dotenv": "16.4.7"
+    }
+}
