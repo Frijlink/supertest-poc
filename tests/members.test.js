@@ -6,7 +6,7 @@ import { getBoardsFromMember, getMemberOrganizations } from '../api/members.js'
 const key = process.env.API_KEY
 const token = process.env.API_TOKEN
 
-describe("Tello API: GET /members", () => {
+describe("Trello API: GET /members", () => {
 
     it("GET /members/me/boards should return boards of user", async () => {
         const boards = await getBoardsFromMember(key, token)

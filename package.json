@@ -4,7 +4,7 @@
     "description": "small poc with supertest",
     "type": "module",
     "scripts": {
-        "test": "npx vitest tests/**.test.js"
+        "test": "npx vitest run tests/**.test.js"
     },
     "author": "Hein-Carl Frijlink",
     "homepage": "https://github.com/Frijlink/supertest-poc#readme",
